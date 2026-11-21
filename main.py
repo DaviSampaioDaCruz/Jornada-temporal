@@ -158,7 +158,7 @@ def verificar_aumento_vida():
 FASES_BASE = {
 
     1: {
-        "nome": "PRE-HISTORIA",
+        "nome": "PRÉ-HISTÓRIA",
         "background": "floresta.png",
         "rodadas": {
             1: {"dinossauros": 2, "insetos": 1},

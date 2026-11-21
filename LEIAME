@@ -1,0 +1,31 @@
+#JORNADA TEMPORAL
+
+Requisitos
+- Python 3.13.14
+- Pygame
+
+Instalação
+Para instalar a biblioteca Pygame, abra o terminal na pasta do projeto e execute:
+
+pip install pygame
+
+Como executar
+Na pasta principal do projeto, execute o comando:
+
+python main.py
+
+Controles
+
+| Tecla | Ação |
+
+| A ou ← | Movimentar para a esquerda |
+| D ou → | Movimentar para a direita |
+| ESPAÇO | Pular / iniciar a fase |
+| W ou ↑ | Pular |
+| ESC | Pausar o jogo ou sair dos menus |
+| Mouse | Selecionar opções nos menus |
+
+Objetivo do jogo
+Derrote os inimigos pulando sobre eles, sobreviva às rodadas e avance pelas três eras: Pré-História, Medieval e Futuro.
+
+Colete corações para recuperar vidas e tente concluir todas as fases!
