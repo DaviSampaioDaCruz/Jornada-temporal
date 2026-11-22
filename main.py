@@ -12,6 +12,7 @@ from inimigo import (
 from sistema_vida import SistemaVida
 from dificuldade import configurar_dificuldade
 from menu import Menu
+from sons import Sons
 
 
 PASTA_PROJETO = Path(__file__).resolve().parent
@@ -23,6 +24,8 @@ ALTURA_CHAO = 445
 
 janela = Window(LARGURA, ALTURA, "Jornada Temporal")
 teclado = janela.keyboard
+
+sons = Sons(PASTA_ASSETS)
 
 pygame.mouse.set_visible(True)
 
@@ -519,6 +522,7 @@ def desenhar_inicio_fase():
     )
 
 
+
 def desenhar_menu_pausa():
 
     tela = janela.get_screen()
@@ -561,6 +565,10 @@ def desenhar_menu_pausa():
     )
 
     menu.desenhar_pausa(tela)
+
+    sons.atualizar_controles()
+    sons.desenhar_controles(tela)
+
 
 
 while True:
@@ -665,7 +673,9 @@ while True:
 
                     if projetil.colidiu_com(jogador):
 
-                        vida.receber_dano()
+                        if vida.receber_dano():
+
+                            sons.tocar_dano()
 
             if inimigo.colidiu_com(jogador):
 
@@ -687,6 +697,8 @@ while True:
 
                     inimigo.morrer()
 
+                    sons.tocar_impacto()
+
                     tentar_dropar_coracao(
                         inimigo,
                         ultimo_inimigo_ultima_rodada
@@ -699,7 +711,9 @@ while True:
 
                 else:
 
-                    vida.receber_dano()
+                    if vida.receber_dano():
+
+                        sons.tocar_dano()
 
         inimigos = [
             inimigo for inimigo in inimigos
